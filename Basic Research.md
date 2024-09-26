@@ -1,4 +1,5 @@
-**Basic Research**
+### Analog Note (Lecture) 
+
 ---
 
 ### CH1 - The Circuit Abstraction
