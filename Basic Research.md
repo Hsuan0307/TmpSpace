@@ -22,6 +22,8 @@
  #### Kirchhoff's Laws
  - **KCL (Kirchhoff's Current Law)**  
    Sum of currents flow in a node must equal to sum of currents flow out the same node
- - **KVL ()**  
+ - **KVL (Krichhoff's Voltage Law)**
+   Sum of all voltage around same loop must be zero
+   
 
  
