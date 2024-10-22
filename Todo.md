@@ -1,7 +1,8 @@
 ### Todo Check
 
 #### Personal
-- Statement Complete
+- HW3 Complete
+- Topics Generating
 - Data Complete (mail)
 
 
