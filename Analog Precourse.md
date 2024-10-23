@@ -43,7 +43,18 @@
 
 > 如果對角相乘的質相等 中間的電阻不會被通過 拆橋
 
+#### 分壓定理(Voltage divider rule) & 分流定理(Current divider rule) CF
 
+- **Voltage diveder**
+   - V-out is fraction(other's partial) of V-in
+   - 串聯才有分壓關係!!!!!
+      
+- **Current diveder**
+   - V-out is fraction(own partial) of V-in
+   - 並聯才有分流關係!!!!!
+
+#### NMOS
+- 
 
 > #### 推薦書目
 > 1. 別鬧了，費曼先生
