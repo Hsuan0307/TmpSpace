@@ -1,4 +1,4 @@
-HDL_Program 1 
+HDL_Project 1 
 
 1. Not
 ```
