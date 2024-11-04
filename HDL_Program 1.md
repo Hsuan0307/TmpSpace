@@ -64,14 +64,35 @@ CHIP Xor {
 }
 ```
 
-6. Mux
+5. Mux
+```
+CHIP Mux {
+    IN a, b, sel;
+    OUT out;
+
+    PARTS:
+    //Not sel
+    Nand(a= sel, b= sel, out= Notsel);
+
+    //Notsel Nand a
+    Nand(a= Notsel, b= a, out= NotselNanda);
+
+    //sel Nand b
+    Nand(a=sel ,b= b, out= selNandb);
+
+    //out
+    Nand(a= NotselNanda, b= selNandb, out= out);
+}
+```
 7. DMux
-8. Not16
-9. And16
-10. Or16
-11. Mux16
-12. Or8way
-13. Mux4Way16
-14. Mux8Way16
-15. DMux4Way
-16. DMux8Way
+
+8. 
+9. Not16
+10. And16
+11. Or16
+12. Mux16
+13. Or8way
+14. Mux4Way16
+15. Mux8Way16
+16. DMux4Way
+17. DMux8Way
