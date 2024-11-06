@@ -1,19 +1,5 @@
 ### Todo Check
 
-#### Personal
-- HW3 Complete
-- Topics Generating
-- Data Complete (mail)
-
-
-#### Work
-- Automatic
-- Columns
-
-
-
----
-
 #### Plan
 
 - [ ] Looking for next jobs :)  
@@ -23,5 +9,3 @@
       (Entry till 12/13 | On 01/12)
 - [ ] JLPT N1 Level
 - [ ] Kanji Test
-- [ ] BJT Research
-      
