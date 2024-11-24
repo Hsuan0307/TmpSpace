@@ -162,6 +162,15 @@ CHIP ALU {
 
     //zr ng sign
     //output = 0 then zr = 1
+    Or16Way(in= xyO, out= zrpre);
+    Not(in= zrpre, out= zr);
+  
+    //output = negative then ng = 1
+    And16(a[0..14]= false, a[15]= true, b= xyO, out= fixedNg);
+    Or16Way(in= fixedNg, out= ng);
+
+    //Final output
+    Or16(a= xyO, b[0..15]= false, out= out);
 
 }
 ```
