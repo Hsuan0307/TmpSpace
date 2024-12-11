@@ -1,5 +1,20 @@
 ### Todo Check
 
+
+#### Plan for 12/12!!!
+- [ ] Outfit final check
+- [ ] Hair style comfirm
+- [ ] Goods' decoration
+- [ ] Photos related equipment check
+
+#### Shop list
+- [ ] Nail sticker
+- [ ] Chocolates
+
+
+
+
+
 #### Plan
 
 - [ ] Looking for next jobs :)  
