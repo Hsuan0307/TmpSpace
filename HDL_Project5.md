@@ -22,10 +22,10 @@ CHIP CPU {
 
     //select for A/C
     Mux16(a= instruction, b= outforA, sel= instruction[15], out= ACoutput);
-    ARegister(in= ACoutput, load= instruction[2], out= ARout);
+    ARegister(in= ACoutput, load= instruction[5], out= ARout, out[0..14]= addressM);
 
     //select for comp A/M
-    Mux(a= ARout, b= inM, sel= instruction[12], out= AMout);
+    Mux16(a= ARout, b= inM, sel= instruction[12], out= AMout);
     
     //select D Register
     DRegister(in= outforD, load= instruction[1], out= DRout);
@@ -43,7 +43,7 @@ CHIP CPU {
 
     //writeD
     And(a= instruction[15], b= instruction[4], out= writeinD);
-    DRegister(in= outM, load= wirteinD, out= Dvalue);
+    DRegister(in= outforD, load= writeinD, out= Dvalue);
 
 
     //series of Jump (2, 1, 0) & C-instruction
@@ -60,7 +60,7 @@ CHIP CPU {
     And(a= zr, b= JEQins, out= dJEQ);
 
     //3. JGE
-    And(a= instruction[1], b= instrction[0], out= JGEpre);
+    And(a= instruction[1], b= instruction[0], out= JGEpre);
     And(a= instruction[15], b= JGEpre, out= JGEins);
     And(a= notng, b= JGEins, out= dJGE);
 
@@ -85,10 +85,14 @@ CHIP CPU {
     And(a= JMPpre1, b= JMPpre2, out= dJMP);
 
     //sum-up jump condition into JUMP
-    Or(
+    Or(a= dJGT, b= dJEQ, out= j1);
+    Or(a= dJGE, b= dJLT, out= j2);
+    Or(a= dJNE, b= dJLE, out= j3);
+    Or(a= dJMP, b= j1, out= j4);
+    Or(a= j2, b= j3, out= j5);
+    Or(a= j4, b= j5, out= jumpdecision);
 
-
-    
-
+    //PC
+    PC(in= ARout, load= jumpdecision, inc= true,reset= reset, out[0..14]= pc);
 }
 ```
