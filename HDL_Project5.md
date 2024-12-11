@@ -3,6 +3,7 @@
 #### CPU.hdl
 
 ```
+
 CHIP CPU {
 
     IN  inM[16],         // M value input  (M = contents of RAM[A])
@@ -28,7 +29,7 @@ CHIP CPU {
     Mux16(a= ARout, b= inM, sel= instruction[12], out= AMout);
     
     //select D Register
-    DRegister(in= outforD, load= instruction[1], out= DRout);
+    DRegister(in= outforD, load= instruction[4], out= DRout);
 
     //ALU action
     ALU(x= DRout, y= AMout, zx= instruction[11], nx= instruction[10],
@@ -39,7 +40,7 @@ CHIP CPU {
     
     //Write of ALU output
     //writeM
-    And(a= instruction[15], b= instruction[3], out= wirteM);
+    And(a= instruction[15], b= instruction[3], out= writeM);
 
     //writeD
     And(a= instruction[15], b= instruction[4], out= writeinD);
@@ -94,5 +95,7 @@ CHIP CPU {
 
     //PC
     PC(in= ARout, load= jumpdecision, inc= true,reset= reset, out[0..14]= pc);
+    
+
 }
 ```
