@@ -47,39 +47,47 @@ CHIP CPU {
 
 
     //series of Jump (2, 1, 0) & C-instruction
+    Not(in= zr, out= notzr);
+    Not(in= ng, out= notng);
+
     //1. JGT
     And(a= instruction[15], b= instruction[0], out= JGTins);
-    
+    And(a= notzr, b= notng, out= JGTALU);
+    And(a= JGTALU, b= JGTins, out= dJGT);
 
-    //2. JEG
-    And(a= instruction[15], b= instruction[1], out= JEGins);
-
+    //2. JEQ
+    And(a= instruction[15], b= instruction[1], out= JEQins);
+    And(a= zr, b= JEQins, out= dJEQ);
 
     //3. JGE
     And(a= instruction[1], b= instrction[0], out= JGEpre);
     And(a= instruction[15], b= JGEpre, out= JGEins);
+    And(a= notng, b= JGEins, out= dJGE);
 
     //4. JLT
     And(a= instruction[15], b= instruction[2], out= JLTins);
+    And(a= ng, b= JLTins, out= dJLT);
 
     //5. JNE
     And(a= instruction[2], b= instruction[0], out= JNEpre);
     And(a= instruction[15], b= JNEpre, out= JNEins);
+    And(a= notzr, b= JNEins, out= dJNE);
 
     //6. JLE
     And(a= instruction[2], b= instruction[1], out= JLEpre);
     And(a= instruction[15], b=JLEpre, out= JLEins);
+    Not(in= JGTALU, out= notJGT);
+    And(a= notJGT, b= JLEins, out= dJLE);
 
     //7. JMP
     And(a= instruction[1], b= instruction[0], out= JMPpre1);
     And(a= instruction[15], b= instruction[2], out= JMPpre2);
-    And(a= JMPpre1, b= JMPpre2, out= JMPins);
+    And(a= JMPpre1, b= JMPpre2, out= dJMP);
+
+    //sum-up jump condition into JUMP
+    Or(
 
 
-
-    
-
-}
     
 
 }
