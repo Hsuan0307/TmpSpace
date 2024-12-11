@@ -3,7 +3,6 @@
 #### CPU.hdl
 
 ```
-
 CHIP CPU {
 
     IN  inM[16],         // M value input  (M = contents of RAM[A])
@@ -35,8 +34,52 @@ CHIP CPU {
     ALU(x= DRout, y= AMout, zx= instruction[11], nx= instruction[10],
                             zy= instruction[9], ny= instruction[8],
                             f= instruction[7], no= instruction[6],
-                            out = outforD, out= outforA, out= outM,
+                            out= outM, out = outforD, out= outforA,
                             zr= zr, ng= ng);
+    
+    //Write of ALU output
+    //writeM
+    And(a= instruction[15], b= instruction[3], out= wirteM);
+
+    //writeD
+    And(a= instruction[15], b= instruction[4], out= writeinD);
+    DRegister(in= outM, load= wirteinD, out= Dvalue);
+
+
+    //series of Jump (2, 1, 0) & C-instruction
+    //1. JGT
+    And(a= instruction[15], b= instruction[0], out= JGTins);
+    
+
+    //2. JEG
+    And(a= instruction[15], b= instruction[1], out= JEGins);
+
+
+    //3. JGE
+    And(a= instruction[1], b= instrction[0], out= JGEpre);
+    And(a= instruction[15], b= JGEpre, out= JGEins);
+
+    //4. JLT
+    And(a= instruction[15], b= instruction[2], out= JLTins);
+
+    //5. JNE
+    And(a= instruction[2], b= instruction[0], out= JNEpre);
+    And(a= instruction[15], b= JNEpre, out= JNEins);
+
+    //6. JLE
+    And(a= instruction[2], b= instruction[1], out= JLEpre);
+    And(a= instruction[15], b=JLEpre, out= JLEins);
+
+    //7. JMP
+    And(a= instruction[1], b= instruction[0], out= JMPpre1);
+    And(a= instruction[15], b= instruction[2], out= JMPpre2);
+    And(a= JMPpre1, b= JMPpre2, out= JMPins);
+
+
+
+    
+
+}
     
 
 }
