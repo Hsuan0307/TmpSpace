@@ -138,7 +138,18 @@
 #### Project 5 - Computer Architecture
 ![avatar](https://courses.cs.washington.edu/courses/cse390b/22wi/readings/images/hack_cpu.png)
 
- 1. Memory-mapped I/O
-
 ---
 #### Project 6 - Assembler
+
+
+
+
+---
+
+### Point 
+ - Nand applications (how to create all the other logic gate via Nand)
+ - Concept of hardware devices
+ - Redo all projects chips
+ - Complements (1 2)
+ - ALU logic and concept of output value
+ - 
