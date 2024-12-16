@@ -1,9 +1,10 @@
 ### Final note
 #### Nand2Tetris
 
-##### Project 1 - Boolean Logic
-- 1. Nand Chip : All other gate is built from Nand chip 
-  2. Gate Logics :
+---
+#### Project 1 - Boolean Logic
+ 1. Nand Chip : All other gate is built from Nand chip
+ 2. Gate Logics :
      ```
      CHIP Not {
        IN in;
@@ -60,14 +61,41 @@
      
 
 
+---
+#### Project 2 - Boolean Arithmetic
 
-##### Project 2 - Boolean Arithmetic
+---
+#### Project 3 - Sequential Logic
 
+##### Function of In/Out/Load/Clock
+ 1. **1-bit Register**
+     ```
+     if load(t) True: out(t+1) = in(t)  
+                else: out(t+1) = out(t)
+     ```
+ 2. **Multi-bit Register (combine of several 1-bit registers)**  
+     ```
+     if load(t) True: out(t+1) = in(t)  
+                else: out(t+1) = out(t)
+     ```
+ 3. **RAM (Random Address Memory / combine of several multi-bit registers)**
+     ``` 
+     in      : write value
+     address : assign certain register
+     load    : write or not
+     out     : output & keep value of t+1
+     ```
+ 4. **Counter (Keep address of START of next instruction)**
+    ```
+    increment [PC++] : Normally go to next instruction
+    load      [PC=n] : Jump to certain line
+    reset     [PC=0] : Back to the first line
 
-##### Project 3 - Sequential Logic
- - Function of In/Out/Load/Clock
-
-
+    if    reset(t) True: out(t+1) = 0
+    elif   load(t) True: out(t+1) = in(t)
+    elif    inc(t) True: out(t+1) = out(t) + 1
+    else               : out(t+1) = out(t)
+    ```
 ##### Project 4 - Machine Language
 
 
