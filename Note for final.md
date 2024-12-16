@@ -116,11 +116,26 @@
     ```
     out(t+1) = in(t)
     ```
- 7. 
-##### Project 4 - Machine Language
+    
+#### Project 4 - Machine Language
+
+ 1. **A-instruction**
+    
+     |15 |14 |13 |12 |11 |10 | 9 | 8 | 7 | 6 | 5 | 4 | 3 | 2 | 1 | 0 |
+     |---|---|---|---|---|---|---|---|---|---|---|---|---|---|---|---|
+     | 0 | x | x | x | x | x | x | x | x | x | x | x | x | x | x | x |
+    
+ 2. **C-instruction**
+    
+     |15 |14 |13 |12 |11 |10 | 9 | 8 | 7 | 6 | 5 | 4 | 3 | 2 | 1 | 0 |
+     |---|---|---|---|---|---|---|---|---|---|---|---|---|---|---|---|
+     | 1 | 1 | 1 | a | c | c | c | c | c | c | A | D | M | j | j | j |
+    
+     ----Code for C----- -A/M- -----------comp(ALU)------------ ----registers---- ---jump type---   
 
 
-##### Project 5 - Computer Architecture
+
+#### Project 5 - Computer Architecture
 
 
-##### Project 6 - Assembler
+#### Project 6 - Assembler
