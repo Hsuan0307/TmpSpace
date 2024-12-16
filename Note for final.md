@@ -62,8 +62,16 @@
 
 
 ##### Project 2 - Boolean Arithmetic
+
+
 ##### Project 3 - Sequential Logic
  - Function of In/Out/Load/Clock
+
+
 ##### Project 4 - Machine Language
+
+
 ##### Project 5 - Computer Architecture
+
+
 ##### Project 6 - Assembler
