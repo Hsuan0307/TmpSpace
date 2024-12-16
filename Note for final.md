@@ -78,7 +78,7 @@
      if load(t) True: out(t+1) = in(t)  
                 else: out(t+1) = out(t)
      ```
- 3. **RAM (Random Address Memory / combine of several multi-bit registers)**
+ 3. **RAM (Random Access Memory / combine of several multi-bit registers)**
      ``` 
      in      : write value
      address : assign certain register
@@ -136,6 +136,7 @@
 
 
 #### Project 5 - Computer Architecture
-
+![avatar](https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcRB5TqnwXkVGh1MSFw7u1L0xBH26fw5iRqRfQ&s)
+ 1. Memory-mapped I/O
 
 #### Project 6 - Assembler
