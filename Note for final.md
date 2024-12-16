@@ -116,7 +116,7 @@
     ```
     out(t+1) = in(t)
     ```
-    
+---    
 #### Project 4 - Machine Language
 
  1. **A-instruction**
@@ -134,10 +134,11 @@
      ----Code for C----- -A/M- -----------comp(ALU)------------ ----registers---- ---jump type---   
 
 
-
+---
 #### Project 5 - Computer Architecture
-![avatar](https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcRB5TqnwXkVGh1MSFw7u1L0xBH26fw5iRqRfQ&s)
+![avatar](https://courses.cs.washington.edu/courses/cse390b/22wi/readings/images/hack_cpu.png)
 
  1. Memory-mapped I/O
 
+---
 #### Project 6 - Assembler
