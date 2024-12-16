@@ -70,8 +70,8 @@
 ##### Function of In/Out/Load/Clock
  1. **1-bit Register**
      ```
-     if load(t) True: out(t+1) = in(t)  
-                else: out(t+1) = out(t)
+     if load(t) True: out(t+1) = in(t)   [new write] 
+                else: out(t+1) = out(t)  [DFF output (keep)]
      ```
  2. **Multi-bit Register (combine of several 1-bit registers)**  
      ```
@@ -84,6 +84,21 @@
      address : assign certain register
      load    : write or not
      out     : output & keep value of t+1
+
+
+     Full RAM Structure
+
+             |--------------------------------------------------------|
+        in   |                          ⭣ load                        |
+     ------->|        .       in   |------------|  out      .         |
+             |     .  .      ----> |  register  | ---->     .  .      |
+       load  |   .    .            |------------|           .Mux .    |   out
+     ------->| . DMux .                 ⭣ load              .(n-1) .  |------->
+             |   .    .       in   |------------|  out      .    .    |
+     address |     .  .      ----> |  register  | ---->     .  .      |
+     ------->|        .            |------------|           .         |
+             |--------------------------------------------------------|
+
      ```
  4. **Counter (Keep address of START of next instruction)**
     ```
@@ -96,6 +111,12 @@
     elif    inc(t) True: out(t+1) = out(t) + 1
     else               : out(t+1) = out(t)
     ```
+
+ 5. **Data Flip Flop**
+    ```
+    out(t+1) = in(t)
+    ```
+ 7. 
 ##### Project 4 - Machine Language
 
 
