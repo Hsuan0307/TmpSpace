@@ -23,7 +23,8 @@ CHIP And {
 }
 ```
    
-3. Or
+3. Or (只有a b同時為false才為false -> True的logic = Not(Nota and Notb)  
+       = (a' and b')' )
 ```
 CHIP Or {
     IN a, b;
