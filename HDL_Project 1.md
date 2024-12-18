@@ -73,16 +73,16 @@ CHIP Mux {
 
     PARTS:
     //Not sel
-    Nand(a= sel, b= sel, out= Notsel);
+    Not(in= sel, out= Nots);
 
-    //Notsel Nand a
-    Nand(a= Notsel, b= a, out= NotselNanda);
+    //b and s
+    And(a= b, b= sel, out= bAnds);
 
-    //sel Nand b
-    Nand(a=sel ,b= b, out= selNandb);
+    //a and Nots
+    And(a= a, b= Nots, out= aAndNots);
 
-    //out
-    Nand(a= NotselNanda, b= selNandb, out= out);
+    //as' + bs
+    Or(a= bAnds, b= aAndNots, out= out);
 }
 ```
 6. DMux
@@ -92,19 +92,14 @@ CHIP DMux {
     OUT a, b;
 
     PARTS:
-    ////B
-    //in Nand sel
-    Nand(a= in, b= sel, out= inNandsel);
-    //Not inNandsel
-    Nand(a= inNandsel, b= inNandsel, out= b);
+    //Nots
+    Not(in= sel, out= Nots);
 
-    ////A
-    //Notsel
-    Nand(a= sel, b= sel, out= Notsel);
-    //in Nand Notsel
-    Nand(a= in, b= Notsel, out= inNandNotsel);
-    //inverse
-    Nand(a= inNandNotsel, b= inNandNotsel, out= a);
+    //a
+    And(a= in, b= Nots, out= a);
+
+    //b
+    And(a= in, b= sel, out= b);
 }
 ```
 
