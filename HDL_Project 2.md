@@ -101,29 +101,21 @@ CHIP ALU {
         ng;      // if (out < 0)  equals 1, else 0
 
     PARTS:
-    //// Replace this comment with your code.
-    
-    //x part
-    //x zero
-    Mux16(a= x, sel= zx, out= xzero);
-    //x negative
-    Not16(in= x, out= xnot);
-    //select by negative
-    Mux16(a= xzero, b= xnot, sel= nx, out= fixedx);
+    //zx zy
+    Mux16(a= x, b[0..15]= false, sel= zx, out= x1);
+    Mux16(a= y, b[0..15]= false, sel= zy, out= y1);
 
-    //y part
-    //y zero
-    Mux16(a= y, sel= zy, out= yzero);
-    //y negative
-    Not16(in= y, out= ynot);
-    //select by negative
-    Mux16(a= yzero, b= ynot, sel= ny, out= fixedy);
+    //nx ny
+    Not16(in= x1, out= Notx);
+    Mux16(a= x1, b= Notx, sel=nx, out= xo);
+    Not16(in= y1, out= Noty);
+    Mux16(a= y1, b= Noty, sel=ny, out= yo);
 
     //x + y
-    Add16(a= fixedx, b= fixedy, out= xAddy);
+    Add16(a= xo, b= yo, out= xAddy);
 
     //x & y
-    And16(a= fixedx, b= fixedy, out= xAndy);
+    And16(a= xo, b= yo, out= xAndy);
 
     //select by f
     Mux16(a= xAndy, b= xAddy, sel= f, out= xyf);
@@ -138,6 +130,7 @@ CHIP ALU {
     //output = 0 then zr = 1
     Or8Way(in= xyOL, out= zrL);
     Or8Way(in= xyOR, out= zrR);
-    Or(a= xyOL, b= xyOR, out= zr);
+    Or(a= zrL, b= zrR, out= zro);
+    Not(in= zro, out= zr);
 }
 ```
