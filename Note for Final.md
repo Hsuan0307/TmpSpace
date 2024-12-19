@@ -63,7 +63,10 @@
 
 ---
 #### Project 2 - Boolean Arithmetic
-
+ 1. Signed Binary number (keep LSB for possitive/negative)
+ 2. 1's complement : inverse all bits while represent negative (having 2 '0')
+ 3. 2's complement : inc 1's complement and avoid double '0'
+ 4. ALU : function (0: and | 1: add)
 ---
 #### Project 3 - Sequential Logic
 
