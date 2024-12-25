@@ -1,9 +1,5 @@
 ### Todo Check
 
-#### Shop list
-- [ ] Nail sticker
-- [ ] Chocolates
-
 #### Plan
 - [ ] Looking for next jobs :)  
 
